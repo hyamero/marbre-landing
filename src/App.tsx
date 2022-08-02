@@ -1,3 +1,4 @@
+import { HandsPage } from "./components/HandsPage";
 import { Navbar, Socials } from "./components/Navbar";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         />
       </div>
       <Socials />
+      <HandsPage />
     </div>
   );
 }
