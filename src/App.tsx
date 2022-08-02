@@ -1,4 +1,4 @@
-import { Navbar } from "./components/Navbar";
+import { Navbar, Socials } from "./components/Navbar";
 
 function App() {
   return (
@@ -24,6 +24,7 @@ function App() {
           alt="marble statue"
         />
       </div>
+      <Socials />
     </div>
   );
 }
