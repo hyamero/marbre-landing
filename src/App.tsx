@@ -1,6 +1,9 @@
+import { Navbar } from "./components/Navbar";
+
 function App() {
   return (
-    <div className="m-auto h-screen md:w-3/4">
+    <div className="relative m-auto h-screen md:w-3/4">
+      <Navbar />
       <div className="flex h-full flex-col items-center justify-center gap-10 bg-white  px-14 sm:px-0 md:gap-5 lg:flex-row">
         <div className="relative z-[1] text-center lg:left-16 lg:text-left">
           <h1 className="flex font-fogtwo text-6xl sm:text-7xl md:text-8xl lg:flex-col lg:text-9xl xl:text-[10rem] xl:leading-[0.9] ">
