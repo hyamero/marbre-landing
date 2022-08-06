@@ -22,3 +22,7 @@
   font-family: FogtwoNo5;
   src: url("/font/FogtwoNo5.woff2") format("Web Open Font Format 2.0");
 }
+
+body {
+  overflow-y: hidden;
+}
