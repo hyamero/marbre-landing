@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .num-text {
+    @apply text-7xl text-gold lg:text-9xl;
+  }
+}
+
 :root {
   font-family: Arial, sans-serif;
 
