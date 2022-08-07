@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        fogtwo: ["FogtwoNo5", "sans-serif"],
+        fogtwo: ["FogtwoNo5", "serif"],
       },
       colors: {
         gold: "#BBA14F",

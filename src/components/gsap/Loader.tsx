@@ -46,7 +46,7 @@ export const Loader = ({}) => {
         {
           overflowY: "auto",
         },
-        "-=0.5"
+        "-=0.3"
       );
   };
 
@@ -116,15 +116,17 @@ export const Loader = ({}) => {
       .add(contentTl, ">0.5");
   }, []);
 
+  // scroll to top before page reload
+  window.onbeforeunload = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <>
       {!unmount && (
         <>
-          <div className="loader-up fixed top-0 left-0 z-[41] h-full w-full bg-[#1e1e1e] [clipPath:polygon(0%_0%,_100%_0%,_100%_50%,_0%_50%)]" />
-          <div className="loader-down fixed top-0 left-0 z-[41] h-full w-full bg-[#1e1e1e] [clipPath:polygon(0%_50%,_100%_50%,_100%_100%,_0%_100%)]" />
-
-          <div className="loader-up-gold fixed top-0 left-0 z-40 h-full w-full bg-gold [clipPath:polygon(0%_0%,_100%_0%,_100%_50%,_0%_50%)]" />
-          <div className="loader-down-gold fixed top-0 left-0 z-40 h-full w-full bg-gold [clipPath:polygon(0%_50%,_100%_50%,_100%_100%,_0%_100%)]" />
+          <div className="loader-down black-full [clipPath:polygon(0%_0%,_100%_0%,_100%_100%,_0%_100%)]" />
+          <div className="loader-down-gold gold-full [clipPath:polygon(0%_0%,_100%_0%,_100%_100%,_0%_100%)]" />
         </>
       )}
     </>
