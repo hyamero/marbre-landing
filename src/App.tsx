@@ -1,5 +1,3 @@
-import { gsap } from "gsap";
-import { useEffect } from "react";
 import { Footer } from "./components/Footer";
 import { Loader } from "./components/gsap/Loader";
 import { HandsPage } from "./components/HandsPage";
@@ -11,7 +9,7 @@ function App() {
       <Loader />
       <Navbar />
       <div className="m-auto md:w-3/4">
-        <section className="flex h-screen flex-col items-center justify-center gap-10 bg-white  px-14 sm:px-0 md:gap-5 lg:flex-row">
+        <section className="flex h-screen flex-col items-center justify-center gap-10 px-14 sm:px-0 md:gap-5 lg:flex-row">
           <div className="relative z-[1] text-center lg:left-16 lg:text-left">
             <h1 className="flex font-fogtwo text-6xl sm:text-7xl md:text-8xl lg:flex-col lg:text-9xl xl:text-[10rem] xl:leading-[0.9] ">
               <span className="h1-anim text-dark ">Marbre</span>

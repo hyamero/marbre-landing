@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 interface HandsPageProps {}
 
@@ -13,25 +15,95 @@ export const HandsPage: React.FC<HandsPageProps> = ({}) => {
 };
 
 const Hand1 = () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".hand1",
+        start: "top center",
+        markers: true,
+      },
+    });
+
+    const handTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".hand1",
+        start: "top center",
+        scrub: 1,
+        markers: true,
+      },
+    });
+
+    if (ref.current) {
+      handTl.to(".hand1", {
+        y: -150,
+      });
+
+      tl.fromTo(
+        ".sec1-p-stagger",
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+          stagger: 0.2,
+        },
+        "-=0.7"
+      )
+        .fromTo(
+          ".sec1-num",
+          {
+            scale: 1.4,
+            opacity: 0,
+          },
+          { scale: 1, opacity: 1 },
+          "<0.3"
+        )
+        .fromTo(
+          ".sec1-title",
+          {
+            opacity: 0,
+            x: 30,
+          },
+          { opacity: 1, x: 0 },
+          "<0.3"
+        );
+    }
+  }, []);
+
   return (
-    <section className="relative grid h-[75vh] place-items-center lg:h-[120vh]">
+    <section
+      ref={ref}
+      className="sec1 relative grid h-[75vh] place-items-center lg:h-[120vh]"
+    >
       <img
-        className="absolute left-1/2 max-w-[250px] -translate-x-1/2 sm:max-w-[300px] lg:right-16 lg:max-w-[400px] xl:max-w-[450px]"
+        className="hand1 absolute left-1/2 bottom-44 z-[1] max-w-[250px] -translate-x-1/2 sm:max-w-[300px] lg:right-16 lg:max-w-[400px] xl:max-w-[450px]"
         src="/img/hand1.png"
         alt="marble hand1"
       />
       <div className="relative top-24 left-7 flex flex-col items-end justify-center gap-y-3 sm:top-32 lg:left-10 lg:top-20 lg:flex-row lg:items-center lg:gap-y-0 lg:gap-x-48">
-        <h2 className=" flex flex-col font-fogtwo">
-          <span className="num-text self-end">01</span>
-          <p className="text-5xl text-dark lg:text-7xl">Éclaté</p>
+        <h2 className=" sec1-h2 flex flex-col font-fogtwo">
+          <span className="sec1-num num-text self-end">01</span>
+          <p className="sec1-title toWhite text-5xl text-dark lg:text-7xl">
+            Éclaté
+          </p>
         </h2>
 
-        <p className="whitespace-nowrap text-right text-sm leading-tight sm:text-base md:text-lg lg:text-left">
-          Marble is a metamorphic rock composed
+        <p className="toWhite whitespace-nowrap text-right text-sm leading-tight sm:text-base md:text-lg lg:text-left">
+          <span className="sec1-p-stagger">
+            Marble is a metamorphic rock composed
+          </span>
           <br />
-          of recrystallized carbonate minerals,
+          <span className="sec1-p-stagger">
+            of recrystallized carbonate minerals,
+          </span>
           <br />
-          most commonly calcite or dolomite.
+          <span className="sec1-p-stagger">
+            most commonly calcite or dolomite.
+          </span>{" "}
         </p>
       </div>
     </section>
@@ -47,7 +119,7 @@ const Hand2 = () => {
         alt="marble hand1"
       />
       <div className="relative top-28 flex flex-col-reverse justify-center gap-y-3 sm:top-36 lg:top-20 lg:right-28 lg:flex-row lg:items-center lg:gap-x-40 lg:gap-y-0">
-        <p className="whitespace-nowrap text-left text-sm leading-tight  sm:text-base md:text-lg lg:text-right">
+        <p className="toWhite whitespace-nowrap text-left text-sm leading-tight  sm:text-base md:text-lg lg:text-right">
           Marble is a metamorphic rock composed
           <br />
           of recrystallized carbonate minerals,
@@ -57,7 +129,7 @@ const Hand2 = () => {
 
         <h2 className="flex flex-col font-fogtwo">
           <span className="num-text self-start">02</span>
-          <p className="text-5xl text-dark lg:text-7xl">Fort</p>
+          <p className="toWhite text-5xl text-dark lg:text-7xl">Fort</p>
         </h2>
       </div>
     </section>
