@@ -10,10 +10,7 @@ export const Loader = ({}) => {
       ease: "power3.inOut",
     });
 
-    tl.to(".loader-up", {
-      duration: 1,
-      clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-    }).to(
+    tl.to(
       ".loader-down",
       {
         duration: 1,
@@ -29,25 +26,20 @@ export const Loader = ({}) => {
       ease: "power3.inOut",
     });
 
-    tl.to(".loader-up-gold", {
-      duration: 1,
-      clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-    })
-      .to(
-        ".loader-down-gold",
-        {
-          duration: 1,
-          clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
-        },
-        "<"
-      )
-      .to(
-        "body",
-        {
-          overflowY: "auto",
-        },
-        "-=0.3"
-      );
+    tl.to(
+      ".loader-down-gold",
+      {
+        duration: 1,
+        clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+      },
+      "<"
+    ).to(
+      "body",
+      {
+        overflowY: "auto",
+      },
+      "-=0.3"
+    );
   };
 
   const contentTl = () => {
