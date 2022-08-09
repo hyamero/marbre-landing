@@ -24,7 +24,6 @@ const Hand1 = () => {
       scrollTrigger: {
         trigger: ".hand1",
         start: "top center",
-        markers: true,
       },
     });
 
@@ -33,7 +32,6 @@ const Hand1 = () => {
         trigger: ".hand1",
         start: "top center",
         scrub: 1,
-        markers: true,
       },
     });
 
@@ -41,7 +39,6 @@ const Hand1 = () => {
       scrollTrigger: {
         trigger: ".hand2",
         start: "top center",
-        markers: true,
       },
     });
 
@@ -50,7 +47,6 @@ const Hand1 = () => {
         trigger: ".hand2",
         start: "top center",
         scrub: 1,
-        markers: true,
       },
     });
 
@@ -61,6 +57,7 @@ const Hand1 = () => {
 
       tl.to(".hand1", {
         clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
+        opacity: 1,
         duration: 0.8,
       })
         .fromTo(
@@ -100,6 +97,7 @@ const Hand1 = () => {
       tl2
         .to(".hand2", {
           clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
+          opacity: 1,
           duration: 0.8,
         })
         .fromTo(
@@ -140,7 +138,7 @@ const Hand1 = () => {
       className="sec1 relative grid h-[75vh] place-items-center lg:h-[120vh]"
     >
       <img
-        className="clip-0-top hand1 absolute left-1/2 bottom-44 z-[1] max-w-[250px] -translate-x-1/2 sm:max-w-[300px] lg:right-16 lg:max-w-[400px] xl:max-w-[450px]"
+        className="clip-0-top hand1 absolute bottom-6 left-1/2 max-w-[250px] -translate-x-1/2 opacity-0 sm:max-w-[300px] lg:bottom-44 lg:right-16 lg:z-[1] lg:max-w-[400px] xl:max-w-[450px]"
         src="/img/hand1.png"
         alt="marble hand1"
       />
@@ -174,7 +172,7 @@ const Hand2 = () => {
   return (
     <section className="sec2 relative grid h-[75vh] place-items-center lg:h-[120vh]">
       <img
-        className="clip-0-top hand2 absolute bottom-44 left-1/2 max-w-[250px] -translate-x-1/2 sm:max-w-[300px] lg:right-16 lg:max-w-[400px] xl:max-w-[450px]"
+        className="clip-0-top hand2 absolute bottom-4 left-1/2 max-w-[250px] -translate-x-1/2 opacity-0 sm:max-w-[300px] lg:bottom-44 lg:right-16 lg:z-[1] lg:max-w-[400px] xl:max-w-[450px]"
         src="/img/hand2.png"
         alt="marble hand1"
       />
