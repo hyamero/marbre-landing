@@ -1,142 +1,18 @@
-import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import HandScrollAnimation from "./gsap/HandScrollAnimation";
 
-interface HandsPageProps {}
-
-export const HandsPage: React.FC<HandsPageProps> = ({}) => {
+export const HandsPage = () => {
   return (
-    <>
+    <HandScrollAnimation>
       <Hand1 />
       <Hand2 />
       <Hand3 />
-    </>
+    </HandScrollAnimation>
   );
 };
 
 const Hand1 = () => {
-  gsap.registerPlugin(ScrollTrigger);
-
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".hand1",
-        start: "top center",
-      },
-    });
-
-    const handTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".hand1",
-        start: "top center",
-        scrub: 1,
-      },
-    });
-
-    const tl2 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".hand2",
-        start: "top center",
-      },
-    });
-
-    const handTl2 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".hand2",
-        start: "top center",
-        scrub: 1,
-      },
-    });
-
-    if (ref.current) {
-      handTl.to(".hand1", {
-        y: -150,
-      });
-
-      tl.to(".hand1", {
-        clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
-        opacity: 1,
-        duration: 0.8,
-      })
-        .fromTo(
-          ".sec1-p-stagger",
-          {
-            opacity: 0,
-          },
-          {
-            opacity: 1,
-            stagger: 0.2,
-          },
-          "<0.4"
-        )
-        .fromTo(
-          ".sec1-num",
-          {
-            scale: 1.4,
-            opacity: 0,
-          },
-          { scale: 1, opacity: 1 },
-          "<0.3"
-        )
-        .fromTo(
-          ".sec1-title",
-          {
-            opacity: 0,
-            x: 30,
-          },
-          { opacity: 1, x: 0 },
-          "<0.3"
-        );
-
-      handTl2.to(".hand2", {
-        y: -150,
-      });
-
-      tl2
-        .to(".hand2", {
-          clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
-          opacity: 1,
-          duration: 0.8,
-        })
-        .fromTo(
-          ".sec2-p-stagger",
-          {
-            opacity: 0,
-          },
-          {
-            opacity: 1,
-            stagger: 0.2,
-          },
-          "<0.4"
-        )
-        .fromTo(
-          ".sec2-num",
-          {
-            scale: 1.4,
-            opacity: 0,
-          },
-          { scale: 1, opacity: 1 },
-          "<0.3"
-        )
-        .fromTo(
-          ".sec2-title",
-          {
-            opacity: 0,
-            x: -30,
-          },
-          { opacity: 1, x: 0 },
-          "<0.3"
-        );
-    }
-  }, []);
-
   return (
-    <section
-      ref={ref}
-      className="sec1 relative grid h-[75vh] place-items-center lg:h-[120vh]"
-    >
+    <section className="sec1 relative grid h-[75vh] place-items-center lg:h-[120vh]">
       <img
         className="clip-0-top hand1 absolute bottom-6 left-1/2 max-w-[250px] -translate-x-1/2 opacity-0 sm:max-w-[300px] lg:bottom-44 lg:right-16 lg:z-[1] lg:max-w-[400px] xl:max-w-[450px]"
         src="/img/hand1.png"
