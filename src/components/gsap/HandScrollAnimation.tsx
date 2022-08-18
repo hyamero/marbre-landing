@@ -21,6 +21,7 @@ const HandScrollAnimation = ({ children }: { children: React.ReactNode }) => {
     /**
      * TL1
      */
+
     const tl = scrollTrig(".hand1", "top center", false);
     const handTl = scrollTrig(".hand1", "top center", 1);
 
@@ -102,6 +103,61 @@ const HandScrollAnimation = ({ children }: { children: React.ReactNode }) => {
       )
       .fromTo(
         ".sec2-title",
+        {
+          opacity: 0,
+          x: -30,
+        },
+        { opacity: 1, x: 0 },
+        "<0.3"
+      );
+
+    /**
+     * TL3
+     */
+
+    const tl3 = scrollTrig("#sec3", "top center", false);
+    const handTl3 = scrollTrig("#hand3", "top bottom", 1);
+
+    handTl3
+      .to("#hand3", {
+        x: -70,
+      })
+      .to(
+        "#hand3-head",
+        {
+          y: -200,
+        },
+        "<"
+      );
+
+    tl3
+      .to("#hand3, #hand3-head", {
+        clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
+        opacity: 1,
+        duration: 0.8,
+      })
+      .fromTo(
+        "#sec3-p-stagger",
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+          stagger: 0.2,
+        },
+        "<0.4"
+      )
+      .fromTo(
+        "#sec3-num",
+        {
+          scale: 1.4,
+          opacity: 0,
+        },
+        { scale: 1, opacity: 1 },
+        "<0.3"
+      )
+      .fromTo(
+        "#sec3-title",
         {
           opacity: 0,
           x: -30,

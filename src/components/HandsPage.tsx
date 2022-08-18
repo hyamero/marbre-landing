@@ -78,15 +78,22 @@ const Hand2 = () => {
 
 const Hand3 = () => {
   return (
-    <section className="grid h-screen place-items-center overflow-hidden lg:h-[130vh]">
+    <section
+      id="sec3"
+      className="grid h-screen place-items-center overflow-hidden lg:h-[130vh]"
+    >
       <div className="relative left-5 flex  gap-5 sm:left-8 lg:left-20">
         <div className="space-y-2 lg:space-y-3">
           <img
-            className="max-w-[250px] sm:max-w-[300px] lg:max-w-[400px] xl:max-w-[450px]"
+            id="hand3"
+            className="clip-0-top relative left-16 max-w-[250px]  opacity-0 sm:left-14 sm:max-w-[300px] lg:left-0 lg:max-w-[400px] xl:max-w-[450px]"
             src="/img/hand3.jpg"
             alt="hand render"
           />
-          <p className="whitespace-nowrap text-left text-sm leading-tight sm:text-base md:text-lg">
+          <p
+            id="sec3-p-stagger"
+            className="relative whitespace-nowrap text-left text-sm leading-tight sm:text-base md:text-lg lg:right-14"
+          >
             Marble is a metamorphic rock composed
             <br />
             of recrystallized carbonate minerals,
@@ -96,11 +103,16 @@ const Hand3 = () => {
         </div>
         <div className="flex flex-col justify-between">
           <h2 className=" flex flex-col font-fogtwo">
-            <span className="num-text self-start">03</span>
-            <p className="text-5xl text-dark lg:text-7xl">Void</p>
+            <span id="sec3-num" className="num-text self-start">
+              03
+            </span>
+            <p id="sec3-title" className="text-5xl text-dark lg:text-7xl">
+              Void
+            </p>
           </h2>
           <img
-            className="relative bottom-20 right-1/3 max-w-[150px] sm:bottom-28 sm:max-w-[200px] md:bottom-36 lg:bottom-0 lg:max-w-[250px] xl:right-[40%] xl:max-w-[300px]"
+            id="hand3-head"
+            className="clip-0-top relative -bottom-14 right-1/3 max-w-[150px] sm:-bottom-10 sm:max-w-[200px] lg:right-[40%] lg:max-w-[250px] xl:max-w-[300px]"
             src="/img/head.jpg"
             alt="sinked head"
           />
